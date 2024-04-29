@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Title that goes on tab-->
+<head>
+    <meta charset="utf-8">
+    <title>Evictions in Bushwick</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<div id="map-container"></div>
+
+<div class="map-overlay top">
+    <div class="map-overlay-inner">
+        <h2>Evictions in Bushwick</h2>
+        <label id="year"></label>
+        <input id="slider" type="range" min="0" max="7" step="1" value="0">
+    </div>
+</div>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+    <script src="js/eviction-data.js"></script>
+    <script src="js/scripts.js"></script>
+
+</html>
