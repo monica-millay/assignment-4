@@ -16,52 +16,36 @@ const map = new mapboxgl.Map(mapOptions);
 const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-right');
 
-// add filter before markers?
-const years = [
-    2017,
-    2018,
-    2019,
-    2020,
-    2021,
-    2022,
-    2023,
-    2024
-];
-
-function filterBy(year) {
-    const filters = ['==', 'Year', year];
-    map.setFilter('popup', filters);
-    map.setFilter('marker', filters);
-
-    // Set the label to the month
-    document.getElementById('Year').textContent = years[year];
-}
-
 // loop over the evictionData array to make a marker for each record
 evictionData.forEach(function (evictionRecord) {
 
-    // create a popup to attach to the marker
-     const popup = new mapboxgl.Popup({
-        offset: 24,
-        anchor: 'bottom'
-    }).setText(
-        `${evictionRecord.BIN}`
-    );
+    // // create a popup to attach to the marker
+    //  var popup = new mapboxgl.Popup({
+    //     offset: 24,
+    //     anchor: 'bottom'
+    // }).setText(
+    //     `${evictionRecord."text for popup"}`
+    // );
 
     // create a marker, set the coordinates, add the popup, add it to the map
-    const marker = new mapboxgl.Marker({
+    var marker = new mapboxgl.Marker({
         scale: 0.65,
     })
         .setLngLat([evictionRecord.Longitude, evictionRecord.Latitude])
-        .setPopup(popup)
+        // .setPopup(popup)
         .addTo(map);
 })
 
-// Set filter to first year in dataset
-    // 0 = 2017
-    filterBy(0);
-
-    document.getElementById('slider').addEventListener('input', (e) => {
-        const year = parseInt(e.target.value, 10);
-        filterBy(year);
-        })
+map.on('load', () => {
+    map.addLayer(
+                document.getElementById('slider').addEventListener('input', (event) => {
+                  const year = parseInt(event.target.value);
+                  // update the map
+                  map.setFilter('evictionData', ['==', ['number', ['get', 'Year']], year]);
+        
+                //   // update text in the UI
+                //   document.getElementById('Year').innerText = year;
+                           })
+            );
+            });
+        

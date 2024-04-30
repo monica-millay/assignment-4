@@ -10,18 +10,30 @@
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
-<div id="map-container"></div>
+<body>
+    <div id="sidebar">
+        <div class="header">
+            <h2>Evictions in Bushwick</h2>
+        </div>
+    <div class="session" id="sliderbar">
+        <h2>Year: <label id="Year">2017</label></h2>
+        <input
+          id="slider"
+          class="row"
+          type="range"
+          min="2017"
+          max="2024"
+          step="1"
+          value="7"
+        />
+      </div>      
 
-<div class="map-overlay top">
-    <div class="map-overlay-inner">
-        <h2>Evictions in Bushwick</h2>
-        <label id="year"></label>
-        <input id="slider" type="range" min="0" max="7" step="1" value="0">
-    </div>
-</div>
 
+    <div id="map-container"></div>
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
     <script src="js/eviction-data.js"></script>
     <script src="js/scripts.js"></script>
+
+</body>
 
 </html>
