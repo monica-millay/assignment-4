@@ -1,5 +1,3 @@
-
-
 mapboxgl.accessToken = 'pk.eyJ1IjoibW9uaWNhLW1pbGxheSIsImEiOiJjbHV1ZWszeWEwOHlhMnBtcjYyZjd6dmZwIn0.RYKZY8Ym236tnkj4hxTbpg';
 
 var mapOptions = {
@@ -16,40 +14,59 @@ const map = new mapboxgl.Map(mapOptions);
 const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-right');
 
-// loop over the evictionData array to make a marker for each record
-evictionData.forEach(function (evictionRecord) {
-
-    // // create a popup to attach to the marker
-    //  var popup = new mapboxgl.Popup({
-    //     offset: 24,
-    //     anchor: 'bottom'
-    // }).setText(
-    //     `${evictionRecord."text for popup"}`
-    // );
-
-    // create a marker, set the coordinates, add the popup, add it to the map
-    var marker = new mapboxgl.Marker({
-        scale: 0.65,
-    })
-        .setLngLat([evictionRecord.Longitude, evictionRecord.Latitude])
-        // .setPopup(popup)
-        .addTo(map);
-})
-
-// I need help here please
-//I think layer = my JSON (evictionData), right?
 map.on('load', () => {
-    map.addLayer(
-            //here I'm trying to add the slider from my HTML doc
-            document.getElementById('slider').addEventListener('input', (event) => {
-                const year = parseInt(event.target.value);
+    let filterYear = ['==', ['number', ['get', 'Year']]];
 
-            //here I'm trying to filer the data from my JSON (evictionData) by year (called "Year" in dataset)
-            map.setFilter('evictionData', ['==', ['number', ['get', 'Year']], year]);
-        
-            // update text when user moves slider
-            document.getElementById('Year').innerText = year;
-        })
-    );
+    map.addLayer({
+        id: 'evictions',
+        type: 'circle',
+        source: {
+            type: 'geojson',
+            data: './evictions.geojson' // replace this with the url of your own geojson
+        },
+        // paint: {
+        //     'circle-radius': [
+        //         'interpolate',
+        //         ['linear'],
+        //         ['number', ['get', 'Casualty']],
+        //         0,
+        //         4,
+        //         5,
+        //         24
+        //     ],
+        //     'circle-color': [
+        //         'interpolate',
+        //         ['linear'],
+        //         ['number', ['get', 'Casualty']],
+        //         0,
+        //         '#2DC4B2',
+        //         1,
+        //         '#3BB3C3',
+        //         2,
+        //         '#669EC4',
+        //         3,
+        //         '#8B88B6',
+        //         4,
+        //         '#A2719B',
+        //         5,
+        //         '#AA5E79'
+        //     ],
+        //     'circle-opacity': 0.8
+        // },
+        'filter': ['all', filterYear]
+    });
 });
-        
+
+// update year filter when the slider is dragged
+document.getElementById('slider').addEventListener('input', (event) => {
+    const year = parseInt(event.target.value);
+
+    // update the map
+    // "filter": ['==', ['type',['get', 'key']],'value']
+    map.setFilter('evictions', ['==', ['number', ['get', 'Year']], year]);;
+
+    // update text when user moves slider
+    document.getElementById('Year').innerText = year;
+});
+
+
