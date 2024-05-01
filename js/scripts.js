@@ -36,16 +36,20 @@ evictionData.forEach(function (evictionRecord) {
         .addTo(map);
 })
 
+// I need help here please
+//I think layer = my JSON (evictionData), right?
 map.on('load', () => {
     map.addLayer(
-                document.getElementById('slider').addEventListener('input', (event) => {
-                  const year = parseInt(event.target.value);
-                  // update the map
-                  map.setFilter('evictionData', ['==', ['number', ['get', 'Year']], year]);
+            //here I'm trying to add the slider from my HTML doc
+            document.getElementById('slider').addEventListener('input', (event) => {
+                const year = parseInt(event.target.value);
+
+            //here I'm trying to filer the data from my JSON (evictionData) by year (called "Year" in dataset)
+            map.setFilter('evictionData', ['==', ['number', ['get', 'Year']], year]);
         
-                //   // update text in the UI
-                //   document.getElementById('Year').innerText = year;
-                           })
-            );
-            });
+            // update text when user moves slider
+            document.getElementById('Year').innerText = year;
+        })
+    );
+});
         

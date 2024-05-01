@@ -1,6 +1,10 @@
 // Data is from NYC Council
 // URL: https://data.cityofnewyork.us/City-Government/Evictions/6z8x-wfk4/about_data
 
+
+//Disclaimer: I still need to do a lot of data cleaning since I think there are many duplicate entries :(
+  //I'll re-name variables when I clean the data
+
 var evictionData = [
         {
           "Eviction Address": "225 COOPER ST - APT 2-A",
