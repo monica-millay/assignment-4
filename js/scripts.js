@@ -22,7 +22,7 @@ map.on('load', () => {
         type: 'circle',
         source: {
             type: 'geojson',
-            data: './evictions.geojson' // replace this with the url of your own geojson
+            data: './evictions.geojson'
         },
         // paint: {
         //     'circle-radius': [
@@ -66,7 +66,7 @@ document.getElementById('slider').addEventListener('input', (event) => {
     map.setFilter('evictions', ['==', ['number', ['get', 'Year']], year]);;
 
     // update text when user moves slider
-    document.getElementById('Year').innerText = year;
+    document.getElementById('slider-year-label').innerText = year;
 });
 
 
