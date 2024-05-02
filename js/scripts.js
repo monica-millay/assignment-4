@@ -15,8 +15,10 @@ const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-right');
 
 map.on('load', () => {
-    let filterYear = ['==', ['number', ['get', 'Year']],2017];
+    // set default year to 2017
+    let filterYear = ['==', ['number', ['get', 'Year']], 2017];
 
+    // add in evictions data as circles
     map.addLayer({
         id: 'evictions',
         type: 'circle',
@@ -24,6 +26,7 @@ map.on('load', () => {
             type: 'geojson',
             data: './evictions.geojson'
         },
+        // filter by year
         'filter': ['all', filterYear]
     });
 });

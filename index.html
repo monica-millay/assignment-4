@@ -2,40 +2,35 @@
 <html>
 
 <!-- Title that goes on tab-->
+
 <head>
-    <meta charset="utf-8">
-    <title>Evictions in Bushwick</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Evictions in Bushwick</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 
 
 <body>
-    <!-- Sidebar with header and slider-->
-    <div id="map-container"></div>
-    <div id="console">
-            <h1>Evictions in Bushwick</h1>
-            <p> Add explainer and link to data here </p>
+  <!-- map -->
+  <div id="map-container"></div>
+  <!-- sidebar -->
+  <div id="console">
+    <!-- header and explainer text -->
+    <h1>Evictions in Bushwick</h1>
+    <p> Add explainer and link to data here </p>
+    <!-- slider -->
     <div class="session" id="sliderbar">
-        <h2>Year: <label id="slider-year-label">2017</label></h2>
-        <input
-          id="slider"
-          class="row"
-          type="range"
-          min="2017"
-          max="2024"
-          step="1"
-          value="2017"
-        />
-      </div>
-    </div>        
+      <h2>Year: <label id="slider-year-label">2017</label></h2>
+      <input id="slider" class="row" type="range" min="2017" max="2024" step="1" value="2017" />
+    </div>
+  </div>
 
-    <!-- Pull in map, JS, etc.-->
-    <!-- <div id="map-container"></div> -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="evictions.geojson"></script>
+  <!-- Pull in map, JS, etc.-->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="evictions.geojson"></script>
 
 </body>
 
