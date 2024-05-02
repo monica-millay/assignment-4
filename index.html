@@ -13,10 +13,10 @@
 
 <body>
     <!-- Sidebar with header and slider-->
-    <div id="sidebar">
-        <div class="header">
-            <h2>Evictions in Bushwick</h2>
-        </div>
+    <div id="map-container"></div>
+    <div id="console">
+            <h1>Evictions in Bushwick</h1>
+            <p> Add explainer and link to data here </p>
     <div class="session" id="sliderbar">
         <h2>Year: <label id="slider-year-label">2017</label></h2>
         <input
@@ -26,11 +26,13 @@
           min="2017"
           max="2024"
           step="1"
+          value="2017"
         />
-      </div>      
+      </div>
+    </div>        
 
     <!-- Pull in map, JS, etc.-->
-    <div id="map-container"></div>
+    <!-- <div id="map-container"></div> -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
     <script src="js/scripts.js"></script>
     <script src="evictions.geojson"></script>

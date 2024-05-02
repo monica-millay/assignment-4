@@ -15,7 +15,7 @@ const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-right');
 
 map.on('load', () => {
-    let filterYear = ['==', ['number', ['get', 'Year']]];
+    let filterYear = ['==', ['number', ['get', 'Year']],2017];
 
     map.addLayer({
         id: 'evictions',
@@ -24,35 +24,6 @@ map.on('load', () => {
             type: 'geojson',
             data: './evictions.geojson'
         },
-        // paint: {
-        //     'circle-radius': [
-        //         'interpolate',
-        //         ['linear'],
-        //         ['number', ['get', 'Casualty']],
-        //         0,
-        //         4,
-        //         5,
-        //         24
-        //     ],
-        //     'circle-color': [
-        //         'interpolate',
-        //         ['linear'],
-        //         ['number', ['get', 'Casualty']],
-        //         0,
-        //         '#2DC4B2',
-        //         1,
-        //         '#3BB3C3',
-        //         2,
-        //         '#669EC4',
-        //         3,
-        //         '#8B88B6',
-        //         4,
-        //         '#A2719B',
-        //         5,
-        //         '#AA5E79'
-        //     ],
-        //     'circle-opacity': 0.8
-        // },
         'filter': ['all', filterYear]
     });
 });
@@ -63,7 +34,8 @@ document.getElementById('slider').addEventListener('input', (event) => {
 
     // update the map
     // "filter": ['==', ['type',['get', 'key']],'value']
-    map.setFilter('evictions', ['==', ['number', ['get', 'Year']], year]);;
+    filterYear = ['==', ['number', ['get', 'Year']], year];
+    map.setFilter('evictions', ['all', filterYear]);
 
     // update text when user moves slider
     document.getElementById('slider-year-label').innerText = year;
