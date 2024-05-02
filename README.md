@@ -9,6 +9,9 @@ Next steps:
 
 (3) All circles are black --> Create color code so user knows which evictions occurred during the moratorium and which didn't? This could get confusing if I do step #1.
 
+<img width="1139" alt="Screenshot 2024-05-02 at 4 15 08 PM" src="https://github.com/monica-millay/assignment-4/assets/165329154/0d4d424c-5a9a-44a2-977d-61287c90bb82">
+
+
 ***
 
 Assignment Instructions: build a Mapbox GL JS web map about a topic of interest, making use of the techniques and tools we have covered in class and/or advanced techniques you have explored on your own.  You may build on previous work, or start with a new idea.  
