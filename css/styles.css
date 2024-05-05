@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: sans-serif;
   }
 
   #map-container {
@@ -14,12 +14,28 @@ body {
   h1 {
     font-size: 20px;
     line-height: 30px;
+    font-weight: strong;
   }
 
   h2 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     margin-bottom: 10px;
+    font-weight: strong;
+  }
+
+  h3 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 10px;
+    margin-bottom: 5px;
+    font-weight: normal;
   }
 
   a {

@@ -3,9 +3,9 @@ Assignment 4 for Interactive Web Mapping and Spatial Data Visualization
 Evictions that have occurred in Bushwick, Brooklyn filtered by year. Seeing this time trend will show the effect of the COVID-19 eviction moratorium.
 
 Next steps: 
-(1) Each eviction is a circle --> Maybe I will update to circles that vary in size in case there were more than 1 eviction in 1 year at the same building. But first I need to look over and clean the data to get rid of duplicate entries that would skew this data viz.
+(1) DATA CLEANING!!! Remove 2024 data, delete dupes
 
-(2) Create bounds so user can't move outside Bushwick.
+(2) Each eviction is a circle --> Maybe I will update to circles that vary in size in case there were more than 1 eviction in 1 year at the same building. But first I need to look over and clean the data to get rid of dupes that would skew this data viz.
 
 (3) All circles are black --> Create color code so user knows which evictions occurred during the moratorium and which didn't? This could get confusing if I do step #1.
 
@@ -27,4 +27,4 @@ Assignment Instructions: build a Mapbox GL JS web map about a topic of interest,
 
 * Add comments in your HTML, Javascript, and CSS files to annotate the code and help explain what it does
 
-* Add a thorough README.md explaining the project, why you chose the topic, etc.  Add screenshots, links to the live site and relevant resources, etc.
+* Add a thorough README.md explaining the project, why you chose the topic, etc.  Add screenshots, links to the live site and relevant resources, etc

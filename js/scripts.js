@@ -1,10 +1,19 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibW9uaWNhLW1pbGxheSIsImEiOiJjbHV1ZWszeWEwOHlhMnBtcjYyZjd6dmZwIn0.RYKZY8Ym236tnkj4hxTbpg';
 
+// add bounding box, so user cannot leave Bushwick
+const bounds = [
+    [-73.95224, 40.67692], // Southwest coordinates
+    [-73.89984, 40.71456] // Northeast coordinates
+];
+
+// add in options for map (style, center point, zoom level, bounds, etc.)
 var mapOptions = {
     container: 'map-container', // container ID
     style: 'mapbox://styles/mapbox/light-v11', // plain/light basemap
-    center: [-73.91903, 40.69678], // starting position [lng, lat]
+    center: [-73.92579, 40.69803], // starting position [lng, lat]
     zoom: 14, // starting zoom
+    maxBounds: bounds, // set the map's geographical boundaries to just Bushwick
+    minZoom: 13 //set max Zoom level, so user cannot leave Bushwick
 }
 
 // instantiate the map
@@ -31,6 +40,7 @@ map.on('load', () => {
     });
 });
 
+// The sliderbar code came from a mapbox tutorial: https://docs.mapbox.com/help/tutorials/show-changes-over-time/#add-a-time-slider
 // update year filter when the slider is dragged
 document.getElementById('slider').addEventListener('input', (event) => {
     const year = parseInt(event.target.value);
